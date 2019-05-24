@@ -7,7 +7,11 @@ import java.util.*;
 
 @Component
 public class EmployeeRepository {
-    EmployeeRepository() {
+
+    private static final HashMap<Integer, Employee> employeeMap;
+
+    static {
+        employeeMap = new HashMap<>();
         employeeMap.put(1, new Employee(1, "John"));
         employeeMap.put(2, new Employee(2, "Mike"));
         employeeMap.put(3, new Employee(3, "Viky"));
@@ -17,7 +21,8 @@ public class EmployeeRepository {
         employeeMap.put(7, new Employee(7, "Carl"));
     }
 
-    private HashMap<Integer, Employee> employeeMap = new HashMap<>();
+    EmployeeRepository() {
+    }
 
     public Employee findEmployeeById(int id) {
         return employeeMap.get(id);
